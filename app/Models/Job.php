@@ -11,8 +11,8 @@ class Job extends Model {
     protected $table = 'job_listings';
     
     //evita que se puedan insertar datos que no estan en el modelo
-    //protected $fillable = ['employer_id','title','salary'];
-    protected $guarded = [];
+    protected $fillable = ['employer_id','title','salary'];
+    //protected $guarded = []; desactivar fillable*
         // return [
         //     [
         //         'id' => 1,
