@@ -11,8 +11,8 @@ class Job extends Model {
     protected $table = 'job_listings';
     
     //evita que se puedan insertar datos que no estan en el modelo
-    protected $fillable = ['title','salary'];
-
+    //protected $fillable = ['employer_id','title','salary'];
+    protected $guarded = [];
         // return [
         //     [
         //         'id' => 1,
@@ -33,8 +33,11 @@ class Job extends Model {
         public function employer()
         {
             return $this->belongsTo(Employer::class);
-        }    
-
-    
+        }
+        
+        public function tags()
+        {
+            return $this->belongsToMany(Tag::class, foreignPivotKey:"job_listing_id");
+        }   
 
 }
